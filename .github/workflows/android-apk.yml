@@ -17,6 +17,8 @@ jobs:
           java-version: '17'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Align Expo SDK dependency versions
+        run: CI=1 npx expo install --fix --npm
       - name: Generate Android project
         run: npx expo prebuild --platform android --non-interactive
       - name: Build Android debug APK
